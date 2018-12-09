@@ -1,9 +1,40 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+#Photocon / An Instagram clone app
+
+This image sharing app lets you to share images , it has functionality as follows
+* Post a image with basic info content
+* like and comment
+* delete post
+* Theater view for viewing photo 
+* Mobile first design
+
+## Screenshots
+### Mobile
+![](https://cdn.steemitimages.com/DQmcMgRwavLgNWNHiuKd4Ys6U5X6h45Y1ydfkJCTBpCQyWR/mobile.png)
+### Web
+![](https://cdn.steemitimages.com/DQmQkjeFEgpvHFoTsSqeGmHoSRBZAKB42wrXo4eU2ZtcS58/Photocon-web.png)
+
+## Stack 
+This app was built using `React-Redux` and UI development framework was `Semantic ui`.
+
+### Project exaplanation 
+
+The Project was built using React-Redux architecture, in case of storing the `likes` for the images was done using redux store, single state manager. Semantic Ui used for this responsive web app that fit for mobile view. Taken care of mobile first design.
+Used axios to load the insta.json file to the app. At first I tired directly with the provided  api but i faced CROS related issues.
+
+Impletmented the inplace Edit/update info functionality for user experience.
+Taken care of basci validation like if post has no comments then disabled `show comments` button will be shown.
+
+The given data was blended to fit the app's functionality.
+The `like button` has implentation like medium's clap button functionality unlike Instagram like.
+
+
+
 
 ## Available Scripts
 
 In the project directory, you can run:
-
+### `npm install`
+    Please run this command before starting the project to download dependecies
 ### `npm start`
 
 Runs the app in the development mode.<br>
@@ -12,33 +43,4 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.<br>
 You will also see any lint errors in the console.
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+ 
