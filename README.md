@@ -39,7 +39,7 @@ In the project directory, you can run:
 ### `npm install`
 
 
- Please run this command before starting the project to download dependecies
+ Please run this command before starting the project to download dependencies
 ### `npm start`
 
 Runs the app in the development mode.<br>
