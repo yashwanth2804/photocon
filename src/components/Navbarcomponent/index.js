@@ -22,7 +22,7 @@ export default class Navbarcomponent extends Component {
         <Menu.Item>
         <img className="ui avatar image" src="https://react.semantic-ui.com/images/avatar/large/elliot.jpg" />             
         <Button basic color='blue'>
-          Follow
+          + Follow
         </Button>
         </Menu.Item>
 
