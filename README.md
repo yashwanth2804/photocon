@@ -1,4 +1,4 @@
-#Photocon / An Instagram clone app
+# Photocon / An Instagram clone app
 
 This image sharing app lets you to share images , it has functionality as follows
 * Post a image with basic info content
@@ -34,7 +34,7 @@ The `like button` has implentation like medium's clap button functionality unlik
 
 In the project directory, you can run:
 ### `npm install`
-    Please run this command before starting the project to download dependecies
+ Please run this command before starting the project to download dependecies
 ### `npm start`
 
 Runs the app in the development mode.<br>
