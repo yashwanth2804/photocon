@@ -21,7 +21,7 @@ This app was built using `React-Redux` and UI development framework was `Semanti
 The Project was built using React-Redux architecture, in case of storing the `likes` for the images was done using redux store, single state manager. Semantic Ui used for this responsive web app that fit for mobile view. Taken care of mobile first design.
 Used axios to load the insta.json file to the app. At first I tired directly with the provided  api but i faced CROS related issues.
 
-Implemented the inplace Edit/update info functionality for user experience.
+Implemented the in place Edit/update info functionality for user experience.
 Taken care of basic validation like if post has no comments then disabled `show comments` button will be shown.
 
 The given data was blended to fit the app's functionality.
@@ -34,6 +34,8 @@ The `like button` has implantation like medium's clap button functionality unlik
 
 In the project directory, you can run:
 ### `npm install`
+
+
  Please run this command before starting the project to download dependecies
 ### `npm start`
 
