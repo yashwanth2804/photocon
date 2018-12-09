@@ -7,7 +7,7 @@ import './Grid.css';
 class Gridss extends Component {
   render() {
     
-    /// Iterating over every insta object in the redux stores `state` 
+    /// Iterating over every insta object in the redux stores `state`   
     const cards = this.props.instas.map((data, idx) => {
 
       return (
