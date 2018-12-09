@@ -75,7 +75,7 @@ class index extends Component {
             <Modal.Actions>
                
               <Button color='green' inverted>
-                <Icon name='heart' /> Esc to exit
+                 Esc to exit
               </Button>
             </Modal.Actions>
           </Modal>
