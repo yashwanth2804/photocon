@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './App.css';
-import { Container , Button , Icon, Label ,Grid } from 'semantic-ui-react';
+import { Container  } from 'semantic-ui-react';
 import Navbarcomponent from '../Navbarcomponent/index';
 import Addinsta from '../Addinsta/index';
 import Grids from '../Grids/Grids';

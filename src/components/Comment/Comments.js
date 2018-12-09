@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Comment, Header, Form, Button } from 'semantic-ui-react'
+import { Comment } from 'semantic-ui-react'
 
 export default class Comments extends Component {
 

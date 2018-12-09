@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
-import { Container, Button, Icon, Label, Grid,Form,TextArea ,Modal,Image} from 'semantic-ui-react';
+import { Container, Button,Form,TextArea ,Modal,Image} from 'semantic-ui-react';
 import * as actionCreators from '../../actions/index';
 
 class index extends Component {

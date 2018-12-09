@@ -8,19 +8,21 @@ export default class Navbarcomponent extends Component {
   handleItemClick = (e, { name }) => this.setState({ activeItem: name })
 
   render() {
-    const { activeItem } = this.state
+   
 
     return (
       <Menu stackable>
-        <Menu.Item>
-          
-        </Menu.Item>
-
+        
         <Menu.Item
           name='Photocon'
           >
           Photocon 
         </Menu.Item>
+
+        <Menu.Item>
+        <img className="ui avatar image" src="https://react.semantic-ui.com/images/avatar/large/elliot.jpg" /> Elliot          
+        </Menu.Item>
+
  
       </Menu>
     )

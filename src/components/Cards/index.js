@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import * as actionCreators from '../../actions/index';
 import { connect } from 'react-redux';
 import './cards.css';
-import { Button, Divider,Label ,List ,Modal,Header,Icon,Input} from 'semantic-ui-react'
+import { Button, Divider,Label  ,Modal,Header,Input} from 'semantic-ui-react'
 import  ModelCtr  from '../Model/ModelCtr'
 
 
@@ -64,7 +64,7 @@ class index extends Component {
     render() {
 
         // destructing obtained Props from `Grids` component
-        const id = this.props.id;
+         
         const { timestamp, Image, likes, comments ,info ,isLiked} = this.props.instasP;
      
         const noOfComments = comments.length;
@@ -180,11 +180,11 @@ class index extends Component {
                         
                     }
                     <Divider />
-                    <a>
-                    <Label  onClick={() => this.handleDeletePost(timestamp)} color='red' horizontal>
+                    
+                    <Label className="delete"  onClick={() => this.handleDeletePost(timestamp)} color='red' horizontal>
                                  Delete
                      </Label>
-                    </a>
+                  
                     
 
 

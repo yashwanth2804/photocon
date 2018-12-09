@@ -12,7 +12,7 @@ class Gridss extends Component {
 
       return (
         // passing every object to  component `Cards` , to generate basic template  
-        <Cards instasP={data} id={idx} key={idx} />
+        <Cards instasP={data}  key={idx} />
       )
 
     });
