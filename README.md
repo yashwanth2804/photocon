@@ -1,7 +1,8 @@
 # Photocon / An Instagram clone app
 
 This image sharing app lets you to share images , it has functionality as follows
-* Post a image with basic info content
+
+* Post an image with basic info content
 * like and comment
 * delete post
 * Theater view for viewing photo 
@@ -24,8 +25,10 @@ Used axios to load the insta.json file to the app. At first I tired directly wit
 Implemented the in place Edit/update info functionality for user experience.
 Taken care of basic validation like if post has no comments then disabled `show comments` button will be shown.
 
-The given data was blended to fit the app's functionality.
+The given data was blended to fit the app's functionality, added comments
 The `like button` has implantation like medium's clap button functionality unlike Instagram like.
+
+Had a great time working in this project.
 
 
 
