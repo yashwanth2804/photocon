@@ -74,15 +74,17 @@ class index extends Component {
 
                 <div className="content">
                     <div className="right floated meta">{timestamp}</div>
-                    <img className="ui avatar image" src="https://react.semantic-ui.com/images/avatar/large/elliot.jpg" /> Elliot
+                    <img className="ui avatar image" 
+                    src="https://react.semantic-ui.com/images/avatar/large/elliot.jpg" /> Elliot
                 </div>
                 <div className="image">
-
-                     <Modal trigger={ <img src={Image}   />} basic size='small'>
+               
+                     <Modal trigger={ <img className="Imghgt" src={Image}  
+                       />} basic size='small'>
                         <Header  content='Cinema...' />
                         <Modal.Content>
-           
-                        <img src={Image}   />
+                      
+                         <img src={Image}   />
                         </Modal.Content>
                         <Modal.Actions>
                         
