@@ -8,58 +8,79 @@ const initalState = {
 
 const Insta = (state = initalState, action) => {
 
+    // creating new state with object destructuring , instead of mutating original
     const newState = { ...state };
-    if (action.type === "LOAD_TWEETS") {
+    if (action.type === "LOAD_INSTAS") {
 
-        //console.log(action.newInstas.data);
         const newData = action.newInstas.data;
-            const y  =newData.map( (s) => {
-                s['comments'] =[] 
+        
+        // original data set has no comments, info , isLiked properties .
+        // this are added for the functionality of app in runtime
+
+        const LoadedInsta  =newData.map( (s) => {
+                s['comments'] =[] ;
+                s['info']='';
+                s['isLiked']=false;
                     return s;
         });
-            console.log(y)
-        console.log("****************************loaded data")
-       // console.log({ ...state, instas: action.newInstas.data })
-        return { ...state, instas: newData }
+             
+        //returning the updated state 
+        return { ...state, instas: LoadedInsta }
+    }
+
+    if (action.type === "UPDATE_INFO") {
+        const {timestamp,info} = action.payload;
+        const updated = newState.instas.map( (p) => {
+
+             if(p.timestamp === timestamp){
+                 
+                 return { ...p, info:info };
+             }
+                
+                 return p; 
+             }) 
+
+        return { ...state, instas : updated }
+    }
+
+    if (action.type === "DELETE_POST") {
+        
+        const timestamp = action.timestamp;
+
+        const updated = newState.instas.filter( (p) => p.timestamp !== timestamp );
+         
+        return { ...state, instas : updated }
     }
 
     if (action.type === "LIKE") {
 
-        //console.log(action.newInstas.data);
         const incLikefor = action.timestamp;
 
-        const ipdated = newState.instas.map( (p) => {
+        const updated = newState.instas.map( (p) => {
 
-           // console.log(p.timestamp)
-
-            if(p.timestamp == incLikefor){
+            if(p.timestamp === incLikefor){
                 
-                return { ...p, likes: p.likes + 1 };
+                return { ...p, likes: p.likes + 1, isLiked:true };
             }
                
                 return p; 
             }) 
  
-        return { ...state ,instas: ipdated }
+        return { ...state ,instas: updated }
     }
 
     if (action.type === "COMMENT") {
 
-        //console.log(action.newInstas.data);
         const { timestamp , cmtTxt } = action.payload;
         const updated = newState.instas.map( (p) => {
 
-            console.log(p.timestamp == timestamp)
-            console.log(p.timestamp + "                "+timestamp);
- 
-             if(p.timestamp == timestamp){
+            if(p.timestamp === timestamp){
                  
                  return { ...p ,
-                
-                comments:[
-                    ...p.comments,
-                    cmtTxt
-                ]
+                        comments:[
+                                    ...p.comments,
+                                    cmtTxt
+                                ]
 
                 };
              }
@@ -67,45 +88,42 @@ const Insta = (state = initalState, action) => {
                  return p; 
              }) 
 
-
-         
-             console.log({ ...state ,instas:updated  });
         return { ...state ,instas:updated  }
     }
 
     ///IMAGE_UPLOAD
     if (action.type === "IMAGE_UPLOAD") {
-        const  url  = action.url;
-        console.log(url);
+
+        const  {url,info}  = action.payload;
         const timestamp = moment().format('YYYY-MM-DD h:mm:ss');
         const Image = url;
         const likes = 0;
         const comments =[];
-
+        const isLiked =false;
+      
         /*
-{
+        Actual json data
+          {
     "Image": "https://s3-ap-southeast-1.amazonaws.com/he-public-data/insta_3d151734.jpg",
     "likes": 380,
     "timestamp": "2017-04-14 14:23:45"
-  }
-    updatedPosts = [{ ...updatedPost, likes: 0 }, ...updatedPosts]
-        */
-        const newInsta = { Image, likes,timestamp,comments }
-        // const updated = {  ...state , instas:newInsta };
-      
-//let AddedInsta  ={...state, instas : [ ...state.instas , newInsta] }
-let AddedInsta  ={...state, instas : [ newInsta , ...state.instas  ] }
-console.log( typeof(AddedInsta));
-//AddedInsta = AddedInsta.reverse();
+            }
+        Modified dataset 
 
-        //   const updatedPosts = [{ ...newInsta} , ...newState]
+         {
+    "Image": "https://s3-ap-southeast-1.amazonaws.com/he-public-data/insta_3d151734.jpg",
+    "likes": 380,
+    "timestamp": "2017-04-14 14:23:45",
+    comments : [],
+    isLiked:false
+        }
 
-       // console.log(updatedPosts)
-      // const y = Object.assign({}, AddedInsta);
+       */
+    const newInsta = { Image, likes,timestamp,comments ,info,isLiked}
+    
+    let AddedInsta  ={...state, instas : [ newInsta ,  ...state.instas  ] }
 
-     
-
-        return AddedInsta;
+    return AddedInsta;
 
     }
 

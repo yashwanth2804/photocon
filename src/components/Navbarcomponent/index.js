@@ -18,10 +18,8 @@ export default class Navbarcomponent extends Component {
 
         <Menu.Item
           name='Photocon'
-         
-          
-        >
-          Features
+          >
+          Photocon 
         </Menu.Item>
  
       </Menu>

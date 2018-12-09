@@ -4,7 +4,7 @@ import './App.css';
 import { Container , Button , Icon, Label ,Grid } from 'semantic-ui-react';
 import Navbarcomponent from '../Navbarcomponent/index';
 import Addinsta from '../Addinsta/index';
-import GridExampleDividedNumber from '../Gridss/Gridss';
+import Grids from '../Grids/Grids';
 import * as actionCreators from '../../actions/index';
 class App extends Component {
   
@@ -12,22 +12,28 @@ class App extends Component {
 
   async componentDidMount() {
     
+    // loading the api from local json file , located at public/insta.json
+
     const uri = `./insta.json`;
-    // this.props.dispatch(actionCreators.phoneFetchAPI(uri));
-    console.log("component dispatch")
+    
+    // loading the json to populate state
     this.props.onLoad(uri);
   }
   
   render() {
     return (
       <div className="App">
+      {/* Navbar component */}
       <Navbarcomponent/>
-      <Container  >
-      <Addinsta/>
-      
 
-     <GridExampleDividedNumber/>  
-        </Container>
+      {/* container element */}
+      <Container  >
+            {/*  Addinsta componet has upload photo ,add info functionalities */}
+            <Addinsta/>
+            {/** Grids component used to iterate over objects available (cards) */}
+            <Grids/>  
+      </Container>
+
       </div>
     );
   }
@@ -35,8 +41,8 @@ class App extends Component {
 
 const mapDispathToProps = (dispatch) => {
   return ({
-    //  byNow: (pId) => { dispatch(actionCreators.buyNow(pId)) },
-    onLoad: (uri) => { dispatch(actionCreators.tweetsFetchAPI(uri)) }
+    // calling the action `instaFetchAPI` to dispatch an action.
+    onLoad: (uri) => { dispatch(actionCreators.instaFetchAPI(uri)) }
    
 
   });

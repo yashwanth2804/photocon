@@ -1,0 +1,25 @@
+
+.liked{
+
+    color: red;
+}
+
+.image{
+
+    cursor: pointer;
+}
+.Txt{
+    color: #efc1c1;
+}
+
+.contentHeartComment{
+    padding: 1rem;
+    display: flex;
+}
+
+.contentHeartComment span{
+    flex-grow: 1;
+}
+body{
+    background-color: #fafafa !important;
+}

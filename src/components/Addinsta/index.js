@@ -9,74 +9,75 @@ class index extends Component {
   state = {
     imageUrl: '',
     uploading: false,
-    modalOpen:false
+    modalOpen: false,
+    infoUpdate: ''
   }
 
+  // changing state of modal
   handleOpen = () => this.setState({ modalOpen: true })
 
+  // changing state of modal
   handleClose = () => this.setState({ modalOpen: false })
 
+  // change state.infoUpdate value while typing 
+  handleOnchange = (e) => {
+    
+    this.setState({ infoUpdate: e.target.value })
 
+  }
+
+  // sets the state.imageUrl with the selected image url  
   fileChangedHandler = (event) => {
     const file = event.target.files[0];
     this.setState({ ...this.state, imageUrl: URL.createObjectURL(file), uploading: true })
-
-
-    console.log(URL.createObjectURL(file))
-
-    console.log(this.state.imageUrl);
-    //this.setState({ ...this.state , uploading:true})
-
   }
+
+  /// upload handler 
   uploadHandler = () => {
     //close the modal
     this.handleClose();
-    console.log(this.state.imageUrl);
-    this.props.imgUpload(this.state.imageUrl);
-    this.setState({ imageUrl: '' })
+    this.props.imgUploadWithInfo(this.state.imageUrl, this.state.infoUpdate);
+    this.setState({ imageUrl: '',infoUpdate:'' })
 
   }
 
   render() {
     return (
-
-
-      <Modal size='small' trigger={<Button inverted color='purple' onClick={this.handleOpen} >Share something</Button>}
-      open={this.state.modalOpen}
+      <Modal size='small' dimmer={"blurring"} trigger={<Button inverted color='purple' onClick={this.handleOpen} >Share something</Button>}
+        open={this.state.modalOpen}
         onClose={this.handleClose}
-       
       >
-      <Modal.Header>
-      <div className="upload-btn-wrapper">
-      <button className="btn">Upload a file</button>
-      <input type="file" onChange={this.fileChangedHandler} />
+        <Modal.Header>
+          <div className="upload-btn-wrapper">
+            <button className="btn">Upload Image</button>
+            <input type="file" onChange={this.fileChangedHandler} />
 
-       </div>
-      
-      </Modal.Header>
+          </div>
 
-      <Modal.Content image>
-        <Image wrapped size='medium' src={this.state.imageUrl} />
-        <Modal.Description>
-        <Form>
-        <TextArea className="description" autoHeight placeholder='Try adding multiple lines' style={{ minHeight: 100 ,width:"150%"}} />
-      </Form>
-        </Modal.Description>
-      </Modal.Content>
-      <Modal.Actions>
-      {(this.state.uploading === false) ? (
-        <Button content='Post !' disabled onClick= {this.uploadHandler} danger />
-      ) : (
-          <Button content='Post !' onClick={this.uploadHandler} primary />
-        )}
+        </Modal.Header>
 
-    </Modal.Actions>
-      
-    </Modal>
+        <Modal.Content image>
+          <Image wrapped size='medium' src={this.state.imageUrl} />
+          <Modal.Description>
+            <Form>
+              <TextArea onChange={event => this.handleOnchange(event)}
+                className="description" autoHeight placeholder='Add some info here'
+                style={{ minWidth: "10rem", width: "100%" }} />
 
+            </Form>
+          </Modal.Description>
+        </Modal.Content>
+        <Modal.Actions>
+          {(this.state.uploading === false) ? (
+            <Button content='Post !' disabled onClick={this.uploadHandler} danger />
+          ) : (
+              <Button content='Post !' onClick={this.uploadHandler} primary />
+            )}
 
+        </Modal.Actions>
 
-      
+      </Modal>
+ 
     )
   }
 }
@@ -84,9 +85,8 @@ class index extends Component {
 
 const mapDispathToProps = (dispatch) => {
   return ({
-    //  byNow: (pId) => { dispatch(actionCreators.buyNow(pId)) },
-
-    imgUpload: (url) => { dispatch(actionCreators.uploadImage(url)) }
+     // calling the action `uploadImageAndInfo` to dispatch an action.
+    imgUploadWithInfo: (url,info) => { dispatch(actionCreators.uploadImageAndInfo(url,info)) }
 
   });
 }
