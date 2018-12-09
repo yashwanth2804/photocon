@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Menu } from 'semantic-ui-react'
+import { Menu , Button } from 'semantic-ui-react'
 
 
 export default class Navbarcomponent extends Component {
@@ -20,7 +20,10 @@ export default class Navbarcomponent extends Component {
         </Menu.Item>
 
         <Menu.Item>
-        <img className="ui avatar image" src="https://react.semantic-ui.com/images/avatar/large/elliot.jpg" /> Elliot          
+        <img className="ui avatar image" src="https://react.semantic-ui.com/images/avatar/large/elliot.jpg" />             
+        <Button basic color='blue'>
+          Follow
+        </Button>
         </Menu.Item>
 
  

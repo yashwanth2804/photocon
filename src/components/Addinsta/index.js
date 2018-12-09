@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { Container, Button,Form,TextArea ,Modal,Image} from 'semantic-ui-react';
 import * as actionCreators from '../../actions/index';
+import './Addinsta.css';
 
 class index extends Component {
 
@@ -58,13 +59,16 @@ class index extends Component {
 
         <Modal.Content image>
           <Image wrapped size='medium' src={this.state.imageUrl} />
-          <Modal.Description>
-            <Form>
-              <TextArea onChange={event => this.handleOnchange(event)}
-                className="description" autoHeight placeholder='Add some info here'
-                style={{ minWidth: "10rem", width: "100%" }} />
+          <Modal.Description  className="descriptionTxtArea">
+            
+           <Form>
+           <TextArea onChange={event => this.handleOnchange(event)}
+             className="" autoHeight placeholder='Add some info here'
+             style={{ minWidth: "10rem", width: "100%" }} />
 
-            </Form>
+         </Form>
+           
+           
           </Modal.Description>
         </Modal.Content>
         <Modal.Actions>

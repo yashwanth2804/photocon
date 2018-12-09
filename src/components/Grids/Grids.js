@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import './Grid.css';
 
 
-class Gridss extends Component {
+class Grids extends Component {
   render() {
     
     /// Iterating over every insta object in the redux stores `state`   
@@ -40,5 +40,5 @@ const mapStateToProps = (state) => {
   }
 
 
-export default connect(mapStateToProps, null)(Gridss);
+export default connect(mapStateToProps, null)(Grids);
 
